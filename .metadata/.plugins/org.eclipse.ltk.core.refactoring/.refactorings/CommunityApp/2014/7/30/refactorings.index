@@ -1,0 +1,10 @@
+1406216139787	Rename field 'textView1'
+1406216151403	Rename field 'textView2'
+1406296719260	Extracts string 'null' into R.string.locate
+1406297031759	Extracts string 'null' into R.string.incident_to_report_message
+1406297094002	Extracts string 'null' into R.string.crime
+1406297143441	Extracts string 'null' into R.string.accident
+1406297188727	Extracts string 'null' into R.string.piping_problem
+1406297230714	Extracts string 'null' into R.string.garbage
+1406493796225	Rename field 'textView1'
+1406494631832	Delete element

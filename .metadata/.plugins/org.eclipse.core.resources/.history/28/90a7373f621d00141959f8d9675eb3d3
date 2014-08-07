@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets_array">
+        <item>Accident</item>
+        <item>Hit and run</item>
+        <item>Corruption</item>
+        <item>uncollected Garbage</item>
+        <item>Burst sewers</item>
+        <item>No running water</item>
+        <item>changaa den</item>
+       
+    </string-array>
+    
+</resources>

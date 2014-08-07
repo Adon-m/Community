@@ -1,0 +1,22 @@
+1407312303087	Encapsulate field 'isConnected'
+1407314151066	Delete element
+1407314159203	Delete element
+1407314168969	Delete element
+1407314212191	Rename resource 'activity_map.xml'
+1407314235433	Rename type 'MapActivity'
+1407314488411	Rename field 'textView1'
+1407314530453	Extracts string 'null' into R.string.incident_report
+1407314798121	Rename field 'TitleView'
+1407314898461	Extracts string 'incident' into R.string.incident
+1407314934817	Extracts string 'TextView' into R.string.location
+1407315321658	Extracts string 'Medium Text' into R.string.description
+1407315456861	Extracts string 'Medium Text' into R.string.phone_number
+1407315756759	Rename field 'textView2'
+1407315814241	Extracts string 'This is optional' into R.string.optional
+1407316451467	Rename field 'editText2'
+1407316473724	Rename field 'editText1'
+1407316493733	Extracts string 'Describe the problem or situation you are facing' into R.string.describe_the_problem_or_situation_you_are_facing
+1407325032003	Rename field 'radioButton2'
+1407327131111	Delete element
+1407331217055	Rename field 'button1'
+1407331234411	Extracts string 'null' into R.string.send

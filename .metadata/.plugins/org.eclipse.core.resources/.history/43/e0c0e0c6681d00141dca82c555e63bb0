@@ -1,0 +1,134 @@
+package com.unearthedgems.communityapp;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+
+public class SendActivity extends Activity {
+
+	int value =0;
+
+	 @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_send);
+	        Bundle extras = getIntent().getExtras();
+	        if (extras != null) {
+	            value = extras.getInt("EXTRA_SELECTED_INCIDENT");
+	        }
+
+	      //  final TextView text =  (TextView) findViewById(R.id.display);
+	        
+	        UpdateCoordinates(this);
+	      // 
+	       
+	        
+	        
+	 }
+	
+	 
+
+	
+
+	/**
+	 * A placeholder fragment containing a simple view.
+	 */
+	public static class PlaceholderFragment extends Fragment {
+
+		public PlaceholderFragment() {
+		}
+
+	}
+
+
+public void UpdateCoordinates(Context c) {
+    
+	//new update().onPreExecute(c);
+	
+	update u = new update();
+	u.onPreExecute(c);
+	if(u.connectivityCheck()==false){
+		new GpsClass(c).showDialog();
+	}
+	u.execute(c);
+	
+}
+
+private class update  extends AsyncTask<Context, Void, double[]> {
+	
+	
+	 final TextView text =  (TextView) findViewById(R.id.display);
+	 GpsClass gps;
+    /** The system calls this to perform work in a worker thread and
+      * delivers it the parameters given to AsyncTask.execute() */
+    protected double []  doInBackground(Context... params) {
+    	
+    	double cods []={gps.getCoordinates(1),gps.getCoordinates(0)};
+    	boolean correct=true;
+    	while(correct){
+    		if(cods[0]==0){
+    			cods [0]=gps.getCods(1);
+    			cods [1]=gps.getCods(0);
+    		}
+    		else 
+    			correct=false;
+    	}
+    	
+		return cods;
+    }
+    
+    /** The system calls this to perform work in the UI thread and delivers
+      * the result from doInBackground() */
+    protected void onPostExecute(double[] d) {
+    	if (gps.isConnected()==false){
+    		Log.d("postExeuteIn " , " "+gps.isConnected());
+    		gps.showDialog();
+    	}
+    	Log.d("postExeuteOut " , " "+gps.isConnected());
+    	Log.d("contents " , ""+d[0]+" "+d[1]+" "+gps.isConnected());
+        text.setText(" "+d[0]+" "+d[1]+" "+value);
+    }
+    protected void onPreExecute(Context... params){
+    	gps= new GpsClass(params[0]);
+    	
+    	Log.d("preExecute " , " "+gps.isConnected());
+    }
+    protected boolean connectivityCheck(){
+    	return gps.isConnected();
+    }
+    	
+    		
+    	
+    	  
+    	
+    	 
+    		 
+    	 
+		
+	}
+
+
+
+
+	
+}
+	   

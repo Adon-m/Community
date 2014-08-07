@@ -1,0 +1,5 @@
+package com.unearthedgems.communityapp;
+
+public interface onSelectedItemListener {
+
+}

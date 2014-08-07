@@ -112,6 +112,8 @@ private class update  extends AsyncTask<Context, Void, double[]> {
     	Log.d("postExeuteOut " , " "+gps.isConnected());
     	Log.d("contents " , ""+d[0]+" "+d[1]+" "+gps.isConnected());
         text.setText("Your location is "+d[0]+" "+d[1]);
+        gps.stopListening();
+        
     }
     protected void onPreExecute(Context... params){
     	gps= new GpsClass(params[0]);

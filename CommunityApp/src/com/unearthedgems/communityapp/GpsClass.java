@@ -137,7 +137,10 @@ public GpsClass(Context mContext) {
 		
 		  
 	  }
-
+	public void stopListening(){
+		locationManager.removeUpdates(locationListener);
+	}
+	
 	public boolean isConnected() {
 		return isConnected;
 	}
